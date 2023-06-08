@@ -136,6 +136,7 @@ You can use either [Filezilla](https://filezilla-project.org) or good old `scp` 
  scontrol show node n035
  ```
  
+ ![Resources Available](assets/images/resources_ListerLab_server.png)
 
 ## Examples
 
