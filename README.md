@@ -118,7 +118,7 @@ You should consider adding your default conda environment to your `~/.bashrc` so
 
 ### 1. Copy files over to Kaya
 
-You can use either [Filezilla](https://filezilla-project.org) or good old `scp` to copy over files to <span style="color:blue">Kaya<span>. For example, you could log into the <span style="color:red">PEB</span> servers and `scp` the tutorial folder.
+You can use either [Filezilla](https://filezilla-project.org) or good old `scp` to copy over files to *Kaya*. For example, you could log into the *PEB* servers and `scp` the tutorial folder.
  
  ```bash
  scp -r /dd_groupdata/tutorial_kaya/ <username>@kaya.hpc.uwa.edu.au:~
