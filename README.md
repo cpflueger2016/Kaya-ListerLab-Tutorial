@@ -22,6 +22,10 @@ In this tutorial, you will learn the basics of server management and SLURM job s
 - How to submit and manage jobs using SLURM.
 - Best practices and tips for efficient server usage.
 
+### Kaya server architecture and storage schematic
+
+![Kaya nodes and storage](assets/images/kaya_storage_schematic.png)
+
 ## Prerequisites
 
 Before starting with the tutorial, make sure you have the following prerequisites installed:
