@@ -1,0 +1,45 @@
+{
+  "build": "0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc",
+    "zlib 1.2.11*"
+  ],
+  "extracted_package_dir": "/home/cpflueger/.conda/pkgs/fastp-0.12.4-0",
+  "features": "",
+  "files": [
+    "bin/fastp"
+  ],
+  "fn": "fastp-0.12.4-0.tar.bz2",
+  "license": "MIT",
+  "link": {
+    "source": "/home/cpflueger/.conda/pkgs/fastp-0.12.4-0",
+    "type": 1
+  },
+  "md5": "96f11f302e5c4b6c33b0bdd77e8fb9a6",
+  "name": "fastp",
+  "package_tarball_full_path": "/home/cpflueger/.conda/pkgs/fastp-0.12.4-0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/fastp",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/fastp_1520332203983/_b_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho",
+        "sha256": "bd95a68e3e6afb5759587af2e44aba961ef129bbb34da86bd67208ebbb5849d9",
+        "sha256_in_prefix": "6cc38f323d73589da65e9b17d2dfb4c975270550c00b30dbafd41690d67f8d5e",
+        "size_in_bytes": 5964040
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "fastp",
+  "sha256": "a67e03af36a8fc57e57ba583b29a6380953204f166bda7b9492b637fcf04c807",
+  "size": 1535985,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/fastp-0.12.4-0.tar.bz2",
+  "version": "0.12.4"
+}

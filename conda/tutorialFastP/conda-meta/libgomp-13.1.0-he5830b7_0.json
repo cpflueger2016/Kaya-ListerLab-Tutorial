@@ -1,0 +1,59 @@
+{
+  "build": "he5830b7_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "_libgcc_mutex 0.1 conda_forge"
+  ],
+  "extracted_package_dir": "/home/cpflueger/.conda/pkgs/libgomp-13.1.0-he5830b7_0",
+  "features": "",
+  "files": [
+    "lib/libgomp.so",
+    "lib/libgomp.so.1.0.0",
+    "share/licenses/gcc-libs/RUNTIME.LIBRARY.EXCEPTION.gomp_copy"
+  ],
+  "fn": "libgomp-13.1.0-he5830b7_0.conda",
+  "license": "GPL-3.0-only WITH GCC-exception-3.1",
+  "license_family": "GPL",
+  "link": {
+    "source": "/home/cpflueger/.conda/pkgs/libgomp-13.1.0-he5830b7_0",
+    "type": 1
+  },
+  "md5": "56ca14d57ac29a75d23a39eb3ee0ddeb",
+  "name": "libgomp",
+  "package_tarball_full_path": "/home/cpflueger/.conda/pkgs/libgomp-13.1.0-he5830b7_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/libgomp.so",
+        "path_type": "softlink",
+        "sha256": "f3de88c0a64bb1ed5814c22e7077a7927b92d8549ffadc1d82704f6a49af2977",
+        "size_in_bytes": 1082544
+      },
+      {
+        "_path": "lib/libgomp.so.1.0.0",
+        "path_type": "hardlink",
+        "sha256": "f3de88c0a64bb1ed5814c22e7077a7927b92d8549ffadc1d82704f6a49af2977",
+        "sha256_in_prefix": "f3de88c0a64bb1ed5814c22e7077a7927b92d8549ffadc1d82704f6a49af2977",
+        "size_in_bytes": 1082544
+      },
+      {
+        "_path": "share/licenses/gcc-libs/RUNTIME.LIBRARY.EXCEPTION.gomp_copy",
+        "path_type": "hardlink",
+        "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+        "sha256_in_prefix": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+        "size_in_bytes": 3324
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "5d441d80b57f857ad305a65169a6b915d4fd6735cdc9e9bded35d493c91ef16d",
+  "size": 419184,
+  "subdir": "linux-64",
+  "timestamp": 1685816132543,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/libgomp-13.1.0-he5830b7_0.conda",
+  "version": "13.1.0"
+}

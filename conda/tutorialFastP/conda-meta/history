@@ -1,0 +1,12 @@
+==> 2023-06-08 22:04:59 <==
+# cmd: /uwahpc/centos8/python/anaconda3/bin/conda create -p /group/peb002/conda_environments/tutorialFastP -c bioconda fastp
+# conda version: 4.9.2
++bioconda/linux-64::fastp-0.12.4-0
++conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
++conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
++conda-forge/linux-64::libgcc-7.2.0-h69d50b8_2
++conda-forge/linux-64::libgcc-ng-13.1.0-he5830b7_0
++conda-forge/linux-64::libgomp-13.1.0-he5830b7_0
++conda-forge/linux-64::libstdcxx-ng-13.1.0-hfd8a6a1_0
++conda-forge/linux-64::zlib-1.2.11-h36c2ea0_1011
+# update specs: ['fastp']
