@@ -48,6 +48,9 @@ There are lot couple of programs already pre-installed on `Kaya`. They are calle
 module avail
 ```
 
+![Available Modules on Kaya](assets/images/modules_kaya.png)
+
+
 
 ## Usage
 
