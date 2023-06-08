@@ -177,7 +177,22 @@ The available partitions have the following wall-time limits
 | ondemand   | 04:00:00        | yes                        |
 | peb        | 14-00:00:00     | no - ListerLab exclusive   |
 
+### 3. Interactive sessions
 
+To test and develop your code/pipeline/environment, it's benefitial to request an interactive session. You can do so by running
+
+```bash
+srun \
+--time=1:00:00 \
+--account=<username> \
+--partition=peb \
+--nodes=1 \
+--ntasks=1 \
+--cpus-per-task=4 \
+--mem-per-cpu=5G \
+--pty /bin/bash -l
+```
+to request a `1h` session with `4 cores` and `20GB of RAM` in total.  
 
 ## Examples
 
