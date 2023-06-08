@@ -204,9 +204,74 @@ __IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up res
 
 ## Examples
 
+
+### 1. SLURM script syntax
+
+SLURM scripts are essentially bash scripts with a header that indicates what the SLURM scheduler is supposed to do for you. For example it needs to know what resources your scripts require such as
+
+- time
+- CPUs
+- memory
+- which server(s) (partition) should handle your script.
+
+The way you can specify this is by adding the following lines to your SLURM script:
+
+```bash
+#!/bin/bash --login
+
+#SBATCH --job-name=<map_da_reads>
+#SBATCH --partition=peb
+#SBATCH --mem-per-cpu=10G
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --time=4:00:00   
+#SBATCH --export=NONE
+#SBATCH --mail-user=<uwa_email_address>@uwa.edu.au
+#SBATCH --mail-type=BEGIN,END
+
+```
+
+This is followed by setting some variable names so you can track which `SLURM` job has resulted in what `output`.
+
+```bash
+# Start of job
+echo $JOBNAME job started at  `date`
+
+# To compile with the GNU toolchain
+module load gcc/9.4.0
+module load star/2.7.9a
+module load Anaconda3/2020.11
+conda activate /group/<your_project_name>/conda_environments/bioinfo
+
+# leave in, it lists the environment loaded by the modules
+module list
+
+#  Note: SLURM_JOBID is a unique number for every job.
+#  These are generic variables
+JOBNAME=GRCm39_ERCC_STAR_index
+SCRATCH=$MYSCRATCH/$JOBNAME/$SLURM_JOBID
+RESULTS=$MYGROUP/$JOBNAME/$SLURM_JOBID
+
+```
+
+### 2. Example SLURM scripts
+
 Now let's run some SLURM scripts and change them so you can see how they work.
 
 [] Login to Kaya and download the tutorial by executing `git clone https://github.com/cpflueger2016/Kaya-ListerLab-Tutorial/tree/main`.
+
+### 3. Launch a SLURM script
+
+```bash
+squeue -p peb trim_those_reads.SLURM
+```
+
+### 4. Cancel SLURM scripts that have an issue or that are in the queue
+
+```bash
+scancel <SLURM_JOB_ID>
+```
 
 
 ## Contributing
