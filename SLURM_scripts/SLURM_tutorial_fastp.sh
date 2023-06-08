@@ -24,10 +24,10 @@ module list
 
 #  Note: SLURM_JOBID is a unique number for every job.
 #  These are generic variables
+JOBNAME=${SLURM_JOB_NAME}
 SCRATCH=$MYSCRATCH/$JOBNAME/$SLURM_JOBID
 RESULTS=$MYGROUP/$JOBNAME/$SLURM_JOBID
 TRIMID="trimmedFastP"
-JOBNAME=${SLURM_JOB_NAME}
 
 ###############################################
 # Creates a unique directory in the SCRATCH directory for this job to run in.
