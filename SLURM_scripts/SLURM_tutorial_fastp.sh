@@ -11,11 +11,11 @@
 
 
 # Start of job
-echo $JOBNAME job started at  `date`
+echo $SLURM_JOB_NAME job started at  `date`
 
 # To compile with the GNU toolchain
 module load gcc/9.4.0
-module load fastp
+module load fastqc
 module load Anaconda3/2020.11
 conda activate /group/peb002/conda_environments/bioinfo
 
@@ -27,6 +27,7 @@ module list
 SCRATCH=$MYSCRATCH/$JOBNAME/$SLURM_JOBID
 RESULTS=$MYGROUP/$JOBNAME/$SLURM_JOBID
 TRIMID="trimmedFastP"
+JOBNAME=${SLURM_JOB_NAME}
 
 ###############################################
 # Creates a unique directory in the SCRATCH directory for this job to run in.
@@ -67,7 +68,7 @@ cd $SCRATCH
 
 # 1. get the name of read1 fastq and remove all the folder names
 ls fastq/*_R1*fastq.gz
-R1=$(ls fastq/*_R1*fastq.gz | basename )
+R1=$(basename fastq/*_R1*fastq.gz )
 echo ${R1}
 echo
 
@@ -77,6 +78,12 @@ echo ${ID}
 echo
 
 ## Execute script/program
+
+# FastqQC
+
+fastqc -o ${ID} --threads ${SLURM_CPUS_PER_TASK} \
+fastq/PL573_2019_08_02_S41_L001_R1_001.fastq.gz \
+fastq/PL573_2019_08_02_S41_L001_R2_001.fastq.gz
 
 # Adapter Trimming
 fastp   -w ${SLURM_CPUS_PER_TASK} \
