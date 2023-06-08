@@ -57,11 +57,20 @@ You can work out what modules you have loaded with the command
 module list
 ```
 
+__IMPORTANTLY__, you'll need to load the `gcc` compiler for a lot of the programs. Consider adding this line of code to your `~/.bashrc` file.
+
 You can load a module with the command
 
 ```bash
+module load gcc/9.4.0
+```
+
+To load samtools for example, type either
+```bash
 module load samtools/1.13(default)
-# or
+```
+or
+```bash
 module load samtools
 ```
 
