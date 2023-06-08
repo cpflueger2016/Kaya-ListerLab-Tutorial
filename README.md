@@ -22,14 +22,20 @@ In this tutorial, you will learn the basics of server management and SLURM job s
 - How to submit and manage jobs using SLURM.
 - Best practices and tips for efficient server usage.
 
+### Kaya server architecture and storage schematic
+
+![Kaya nodes and storage](assets/images/kaya_storage_schematic.png)
+
 ## Prerequisites
 
 Before starting with the tutorial, make sure you have the following prerequisites installed:
 
-- Access to UWA's Kaya server. Email David Grey at UWA for access. 
+☑️ Access to UWA's Kaya server. Email David Grey at UWA for access. 
   * Importantly, you'll need to have a description of your project and who else will have access to the data.
-- VPN access to UWA, including setup of MS Authenticator in case you work outside of the `UNIFI` network.
-- Test that you could successfully login to `Kaya` by opening the terminal and ssh into Kaya
+  
+☑️ VPN access to UWA, including setup of MS Authenticator in case you work outside of the `UNIFI` network.
+
+☑️ Test that you could successfully login to `Kaya` by opening the terminal and ssh into Kaya
 
 
 ```bash
@@ -137,10 +143,71 @@ You can use either [Filezilla](https://filezilla-project.org) or good old `scp` 
  ```
  
  ![Resources Available](assets/images/resources_ListerLab_server.png)
+ 
+ You can see from the picture above, that 4 *cores* are in use and therefore 92 *cores* are available at that time.
+ 
+ To check the queue for the ListerLab server, use the command
+ 
+ ```bash
+ squeue -p peb
+ ```
+ 
+ or for you own jobs
+ 
+ ```bash
+ squeue -u <username>
+ ```
+ 
+ __Note__ at the time of writing, the ListerLab server has the partion variable `peb` assigned. This will change in the future and this Tutorial needs to be updated.
+ 
+ 
+ Check progress on your jobs
+ 
+ ```bash
+ sacct
+ ```
+
+In case the ListerLab server is fully utilized, you'll also have access to common Kaya servers. To list them run
+
+```bash
+sinfo --noheader --format="%P"
+```
+
+The available partitions have the following wall-time limits
+| Partition  | Time Limit      | Publicly Available         |
+|------------|-----------------|----------------------------|
+| work       | 3-00:00:00      | yes                        |
+| long       | 7-00:00:00      | yes                        |
+| gpu        | 3-00:00:00      | yes                        |
+| test       | 00:15:00        | yes                        |
+| ondemand   | 04:00:00        | yes                        |
+| peb        | 14-00:00:00     | no - ListerLab exclusive   |
+
+### 3. Interactive sessions
+
+To test and develop your code/pipeline/environment, it's benefitial to request an interactive session. You can do so by running
+
+```bash
+srun \
+--time=1:00:00 \
+--account=<username> \
+--partition=peb \
+--nodes=1 \
+--ntasks=1 \
+--cpus-per-task=4 \
+--mem-per-cpu=5G \
+--pty /bin/bash -l
+```
+to request a `1h` session with `4 cores` and `20GB of RAM` in total.  
+
+__IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up resources ❗
 
 ## Examples
 
-Provide some examples or use cases to demonstrate the concepts explained in the tutorial. You can include sample code or scripts along with explanations.
+Now let's run some SLURM scripts and change them so you can see how they work.
+
+[] Login to Kaya and download the tutorial by executing `git clone https://github.com/cpflueger2016/Kaya-ListerLab-Tutorial/tree/main`.
+
 
 ## Contributing
 
@@ -148,4 +215,6 @@ Contributions to this tutorial are welcome! If you find any issues or have sugge
 
 ## License
 
-This project is licensed under the [License Name] - add a link to the license file if applicable.
+This project is licensed under the [License Name] - add a link to the license file if applicable. 
+
+Tutorial intitally written by Christian Pflueger.
