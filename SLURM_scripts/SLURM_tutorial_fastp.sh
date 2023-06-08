@@ -17,7 +17,7 @@ echo $SLURM_JOB_NAME job started at  `date`
 module load gcc/9.4.0
 module load fastqc
 module load Anaconda3/2020.11
-conda activate /group/peb002/conda_environments/bioinfo
+#conda activate /group/peb002/conda_environments/bioinfo
 
 # leave in, it lists the environment loaded by the modules
 module list
@@ -28,6 +28,7 @@ JOBNAME=${SLURM_JOB_NAME}
 SCRATCH=$MYSCRATCH/$JOBNAME/$SLURM_JOBID
 RESULTS=$MYGROUP/$JOBNAME/$SLURM_JOBID
 TRIMID="trimmedFastP"
+SAVED="SAVE_${JOBNAME}"
 
 ###############################################
 # Creates a unique directory in the SCRATCH directory for this job to run in.
@@ -53,10 +54,15 @@ OUTPUT=${JOBNAME}_${SLURM_JOBID}.log
 #   then change directory to $SCRATCH
 
 mkdir -p ${SCRATCH}/fastq
+mkdir -p ${SCRATCH}/${SAVED}
 
 ### COPY files to scratch
 cp fastq/*gz ${SCRATCH}/fastq
+cp -r conda/tutorialFastP ${SCRATCH}
 
+
+# Activate conda - usually done after loading modules. Just for tutorial it's here
+conda activate ${SCRATCH}/tutorialFastP
 
 ## IMPORTANT: change directory to scratch
 
@@ -81,9 +87,9 @@ echo
 
 # FastqQC
 
-mkdir -p ${ID}
+mkdir -p ${SCRATCH}/${SAVED}/${ID}
 
-fastqc -o ${ID} --threads ${SLURM_CPUS_PER_TASK} \
+fastqc -o ${SAVED}/${ID} --threads ${SLURM_CPUS_PER_TASK} \
 fastq/PL573_2019_08_02_S41_L001_R1_001.fastq.gz \
 fastq/PL573_2019_08_02_S41_L001_R2_001.fastq.gz
 
@@ -92,8 +98,8 @@ fastp   -w ${SLURM_CPUS_PER_TASK} \
         -q 20 \
         -i fastq/PL573_2019_08_02_S41_L001_R1_001.fastq.gz \
         -I fastq/PL573_2019_08_02_S41_L001_R2_001.fastq.gz \
-        -o PL573_2019_08_02_S41_L001_R1_001.${TRIMID}.fastq \
-        -O PL573_2019_08_02_S41_L001_R2_001.${TRIMID}.fastq \
+        -o ${SAVED}/PL573_2019_08_02_S41_L001_R1_001.${TRIMID}.fastq \
+        -O ${SAVED}/PL573_2019_08_02_S41_L001_R2_001.${TRIMID}.fastq \
         -h ${ID}.html \
         -j ${ID}.json \
         -R ${ID}_fastp_report
