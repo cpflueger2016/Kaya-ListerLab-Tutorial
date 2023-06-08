@@ -51,6 +51,28 @@ module avail
 ![Available Modules on Kaya](assets/images/modules_kaya.png)
 
 
+You can work out what modules you have loaded with the command
+
+```bash
+module list
+```
+
+You can load a module with the command
+
+```bash
+module load samtools/1.13(default)
+# or
+module load samtools
+```
+
+Try running `module list` to check if `samtools` have been successfully loaded.
+
+If you must, you can also unload the modules (in case they clash with conda installs for example) with the command
+
+```bash
+module unload samtools
+```
+
 
 ## Usage
 
