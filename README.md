@@ -259,7 +259,7 @@ RESULTS=$MYGROUP/$JOBNAME/$SLURM_JOBID
 
 Now let's run some SLURM scripts and change them so you can see how they work.
 
-[] Login to Kaya and download the tutorial by executing `git clone https://github.com/cpflueger2016/Kaya-ListerLab-Tutorial/tree/main`.
+[] Login to Kaya and download the tutorial by executing `git clone https://github.com/cpflueger2016/Kaya-ListerLab-Tutorial`.
 
 ### 3. Launch a SLURM script
 
