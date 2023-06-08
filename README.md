@@ -194,6 +194,8 @@ srun \
 ```
 to request a `1h` session with `4 cores` and `20GB of RAM` in total.  
 
+__IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up resources.
+
 ## Examples
 
 Provide some examples or use cases to demonstrate the concepts explained in the tutorial. You can include sample code or scripts along with explanations.
