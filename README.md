@@ -76,11 +76,28 @@ module load samtools
 
 Try running `module list` to check if `samtools` have been successfully loaded.
 
+
 If you must, you can also unload the modules (in case they clash with conda installs for example) with the command
 
 ```bash
 module unload samtools
 ```
+
+### Conda installations
+
+It's recommended and important to install your `conda environment` with the prefix to point to the `group` data. There is more space on the `/group` volume and you can easily share the conda installation with your team members, so they don't have to re-install everything themselves.
+
+An example of how to create a new conda environment would be:
+
+```bash
+conda create -p /group/<your_project_name>/conda_environments/bioinfo -c conda-forge mamba
+```
+Mamba is really useful for quicker installations in conda by replacing `conda` with `mamba`. For example, after mamba is installed, you can install `unicycler` with `mamba` by typing
+
+```bash
+mamba install -c bioconda unicycler
+```
+
 
 
 ## Usage
