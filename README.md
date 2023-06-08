@@ -194,11 +194,14 @@ srun \
 ```
 to request a `1h` session with `4 cores` and `20GB of RAM` in total.  
 
-__IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up resources.
+__IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up resources ❗
 
 ## Examples
 
-Provide some examples or use cases to demonstrate the concepts explained in the tutorial. You can include sample code or scripts along with explanations.
+Now let's run some SLURM scripts and change them so you can see how they work.
+
+[] Login to Kaya and download the tutorial by executing `git clone https://github.com/cpflueger2016/Kaya-ListerLab-Tutorial/tree/main`.
+
 
 ## Contributing
 
@@ -206,4 +209,6 @@ Contributions to this tutorial are welcome! If you find any issues or have sugge
 
 ## License
 
-This project is licensed under the [License Name] - add a link to the license file if applicable.
+This project is licensed under the [License Name] - add a link to the license file if applicable. 
+
+Tutorial intitally written by Christian Pflueger.
