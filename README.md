@@ -137,6 +137,24 @@ You can use either [Filezilla](https://filezilla-project.org) or good old `scp` 
  ```
  
  ![Resources Available](assets/images/resources_ListerLab_server.png)
+ 
+ You can see from the picture above, that 4 *cores* are in use and therefore 92 *cores* are available at that time.
+ 
+ To check the queue for the ListerLab server, use the command
+ 
+ ```bash
+ squeue -p peb
+ ```
+ __Note__ at the time of writing, the ListerLab server has the partion variable `peb` assigned. This will change in the future and this Tutorial needs to be updated.
+ 
+ 
+ 
+ Check progress on your jobs
+ 
+ ```bash
+ sacct
+ ```
+
 
 ## Examples
 
