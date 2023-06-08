@@ -28,7 +28,9 @@ Before starting with the tutorial, make sure you have the following prerequisite
 
 ☑️ Access to UWA's Kaya server. Email David Grey at UWA for access. 
   * Importantly, you'll need to have a description of your project and who else will have access to the data.
+  
 ☑️ VPN access to UWA, including setup of MS Authenticator in case you work outside of the `UNIFI` network.
+
 ☑️ Test that you could successfully login to `Kaya` by opening the terminal and ssh into Kaya
 
 
