@@ -85,6 +85,12 @@ module unload samtools
 
 ### Conda installations
 
+__Conda__ is already pre-installed on `Kaya`. In order to use `conda`, load the module
+
+```bash
+module load Anaconda3/2021.05
+```
+
 It's recommended and important to install your `conda environment` with the prefix to point to the `group` data. There is more space on the `/group` volume and you can easily share the conda installation with your team members, so they don't have to re-install everything themselves.
 
 An example of how to create a new conda environment would be:
@@ -99,10 +105,25 @@ mamba install -c bioconda unicycler
 ```
 
 
+Once you have setup your conda environment, it's as easy as loading it by executing
+
+```bash
+conda activate /group/<your_project_name>/conda_environments/bioinfo
+```
+
+You should consider adding your default conda environment to your `~/.bashrc` so you can use your favourite programs right away.
+
 
 ## Usage
 
-Explain how to use your tutorial and provide step-by-step instructions. You can include code snippets or command-line examples to illustrate the process.
+### 1. Copy files over to Kaya
+
+You can use either [Filezilla](https://filezilla-project.org) or good old `scp` to copy over files to <span style="color:blue">Kaya<span>. For example, you could log into the <span style="color:red">PEB</span> servers and `scp` the tutorial folder.
+ 
+ ```bash
+ scp -r /dd_groupdata/tutorial_kaya/ <username>@kaya.hpc.uwa.edu.au:~
+ ```
+ 
 
 ## Examples
 
