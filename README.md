@@ -42,11 +42,12 @@ ssh <username>@kaya.hpc.uwa.edu.au
 
 ## Installation
 
-Provide instructions on how to install any necessary software or dependencies. For example:
+There are lot couple of programs already pre-installed on `Kaya`. They are called `modules` and you can access the available modules by typeing:
 
-1. Step 1
-2. Step 2
-3. Step 3
+```bash
+module avail
+```
+
 
 ## Usage
 
