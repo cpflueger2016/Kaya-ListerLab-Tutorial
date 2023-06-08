@@ -31,7 +31,11 @@ Before starting with the tutorial, make sure you have the following prerequisite
 - VPN access to UWA, including setup of MS Authenticator in case you work outside of the `UNIFI` network.
 - Test that you could successfully login to `Kaya` by opening the terminal and ssh into Kaya
 
-
+<pre>
+```bash
+ssh <username>@kaya.hpc.uwa.edu.au
+```
+</pre>
 
 
 
