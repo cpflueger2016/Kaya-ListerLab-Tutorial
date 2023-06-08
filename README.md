@@ -167,6 +167,17 @@ In case the ListerLab server is fully utilized, you'll also have access to commo
 sinfo --noheader --format="%P"
 ```
 
+The available partitions have the following wall-time limits
+| Partition  | Time Limit      | Publicly Available         |
+|------------|-----------------|----------------------------|
+| work       | 3-00:00:00      | yes                        |
+| long       | 7-00:00:00      | yes                        |
+| gpu        | 3-00:00:00      | yes                        |
+| test       | 00:15:00        | yes                        |
+| ondemand   | 04:00:00        | yes                        |
+| peb        | 14-00:00:00     | no - ListerLab exclusive   |
+
+
 
 ## Examples
 
