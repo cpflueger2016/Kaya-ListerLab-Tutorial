@@ -130,6 +130,12 @@ You can use either [Filezilla](https://filezilla-project.org) or good old `scp` 
  
  The Lister Lab server is reserved at __node n035__.
  
+ Therefore, you can check the resources that are being used with
+ 
+ ```bash
+ scontrol show node n035
+ ```
+ 
 
 ## Examples
 
