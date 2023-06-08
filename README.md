@@ -145,8 +145,14 @@ You can use either [Filezilla](https://filezilla-project.org) or good old `scp` 
  ```bash
  squeue -p peb
  ```
- __Note__ at the time of writing, the ListerLab server has the partion variable `peb` assigned. This will change in the future and this Tutorial needs to be updated.
  
+ or for you own jobs
+ 
+ ```bash
+ squeue -u <username>
+ ```
+ 
+ __Note__ at the time of writing, the ListerLab server has the partion variable `peb` assigned. This will change in the future and this Tutorial needs to be updated.
  
  
  Check progress on your jobs
@@ -154,6 +160,12 @@ You can use either [Filezilla](https://filezilla-project.org) or good old `scp` 
  ```bash
  sacct
  ```
+
+In case the ListerLab server is fully utilized, you'll also have access to common Kaya servers. To list them run
+
+```bash
+sinfo --noheader --format="%P"
+```
 
 
 ## Examples
