@@ -8,6 +8,9 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --time=4:00:00   
 #SBATCH --export=NONE
+##SBATCH --mail-user=<your.email>@uwa.edu.au
+##SBATCH --mail-type=BEGIN,END
+
 
 
 # Start of job
