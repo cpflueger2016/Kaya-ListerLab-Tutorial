@@ -94,7 +94,8 @@ fastq/PL573_2019_08_02_S41_L001_R1_001.fastq.gz \
 fastq/PL573_2019_08_02_S41_L001_R2_001.fastq.gz
 
 # Adapter Trimming
-fastp   -w ${SLURM_CPUS_PER_TASK} \
+${SCRATCH}/tutorialFastP/bin/fastp \
+        -w ${SLURM_CPUS_PER_TASK} \
         -q 20 \
         -i fastq/PL573_2019_08_02_S41_L001_R1_001.fastq.gz \
         -I fastq/PL573_2019_08_02_S41_L001_R2_001.fastq.gz \
