@@ -264,7 +264,7 @@ Now let's run some SLURM scripts and change them so you can see how they work.
 ### 3. Launch a SLURM script
 
 ```bash
-sbatch -p peb trim_those_reads.SLURM
+sbatch -p peb SLURM_scripts/SLURM_tutorial_fastp.sh
 ```
 
 ### 4. Cancel SLURM scripts that have an issue or that are in the queue
