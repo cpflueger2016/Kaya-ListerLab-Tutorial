@@ -174,7 +174,7 @@ sinfo --noheader --format="%P"
 ```
 
 The available partitions have the following wall-time limits
-| Partition  | Time Limit (D-HH:MM:SS)     | Publicly Available         |
+| Partition  | Time Limit (D-HH:MM:SS) | Publicly Available |
 |------------|-----------------|----------------------------|
 | work       | 3-00:00:00      | yes                        |
 | long       | 7-00:00:00      | yes                        |
