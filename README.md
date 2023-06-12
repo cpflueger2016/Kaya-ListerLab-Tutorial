@@ -42,7 +42,7 @@ Before starting with the tutorial, make sure you have the following prerequisite
 ssh <username>@kaya.hpc.uwa.edu.au
 ```
 
-
+This will allow you to login to Kaya's head node. It is *paramount* that you don't run programs on the head node as it is configured to install programs, write scripts and submit SLURM scripts to the SLURM scheduler.  
 
 
 
