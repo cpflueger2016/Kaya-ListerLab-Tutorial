@@ -63,17 +63,17 @@ You can work out what modules you have loaded with the command
 module list
 ```
 
-__IMPORTANTLY__, you'll need to load the `gcc` compiler for a lot of the programs. Consider adding this line of code to your `~/.bashrc` file.
-
 You can load a module with the command
 
 ```bash
 module load gcc/9.4.0
 ```
 
+__IMPORTANTLY__, you'll need to load the `gcc` compiler for a lot of the programs. Consider adding this line of code to your `~/.bashrc` file by login into `Kaya` and excecute `nano ~/.bashrc`. Paste `module load gcc/9.4.0` in a new line and then save your `~/.bashrc` before you exit. You can reload your profile by executing `source ~/.bashrc`. 
+
 To load samtools for example, type either
 ```bash
-module load samtools/1.13(default)
+module load samtools/1.13
 ```
 or
 ```bash
@@ -175,6 +175,7 @@ sinfo --noheader --format="%P"
 
 The available partitions have the following wall-time limits
 | Partition  | Time Limit      | Publicly Available         |
+|            | (D-HH:MM:SS)    |                            |
 |------------|-----------------|----------------------------|
 | work       | 3-00:00:00      | yes                        |
 | long       | 7-00:00:00      | yes                        |
