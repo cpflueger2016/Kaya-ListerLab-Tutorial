@@ -29,4 +29,5 @@ mkdir -p PlasmidSeq_Stats_QC
 multiqc -l bam_sample_seqStats.log \
 --replace-names sample_names.tsv \
 -o PlasmidSeq_Stats_QC \
---title PlasmidSeq Stats ${current_date} 
+--title "PlasmidSeq Stats ${current_date}" \
+--config /home/cpflueger/.multiqc_config_plasmids.yaml
