@@ -22,6 +22,9 @@ while read line; do \
 	echo -ne "$line\t$sample\n" >> sample_names.tsv; \
 done < bam_sample_seqStats.log
 
+### Create output dir
+mkdir -p PlasmidSeq_Stats_QC
+
 ### Combine all the seq stats with multiqc ###
 multiqc -l bam_sample_seqStats.log \
 --replace-names sample_names.tsv \
