@@ -42,13 +42,13 @@ Before starting with the tutorial, make sure you have the following prerequisite
 ssh <username>@kaya.hpc.uwa.edu.au
 ```
 
-This will allow you to login to Kaya's head node. It is *paramount* that you don't run programs on the head node as it is configured to install programs, write scripts and submit SLURM scripts to the SLURM scheduler.  
+This will allow you to login to Kaya's head node. It is *paramount* that you don't run programs on the head node as it is configured to install programs, write scripts and submit SLURM scripts to the SLURM scheduler. Even compressing a file on the head node can cause issues - it is not designed for any heavy duty tasks.  
 
 
 
 ## Installation
 
-There are lot couple of programs already pre-installed on `Kaya`. They are called `modules` and you can access the available modules by typeing:
+You do not have admin (`sudo`) access to `Kaya` so you are limited in what and how you can install and use software. There are a lot of programs already pre-installed on `Kaya`. They are called `modules` and you can access the available modules by typeing:
 
 ```bash
 module avail
@@ -57,7 +57,7 @@ module avail
 ![Available Modules on Kaya](assets/images/modules_kaya.png)
 
 
-You can work out what modules you have loaded with the command
+You can work out what modules you have loaded with the command (by default you will not have any)
 
 ```bash
 module list
@@ -97,7 +97,7 @@ __Conda__ is already pre-installed on `Kaya`. In order to use `conda`, load the 
 module load Anaconda3/2021.05
 ```
 
-It's recommended and important to install your `conda environment` with the prefix to point to the `group` data. There is more space on the `/group` volume and you can easily share the conda installation with your team members, so they don't have to re-install everything themselves.
+It's recommended and important to create a new `conda environment` with the prefix to point to the `group` data. There is more space on the `/group` volume and you can easily share the conda installation with your team members, so they don't have to re-install everything themselves.
 
 An example of how to create a new conda environment would be:
 
@@ -117,14 +117,14 @@ Once you have setup your conda environment, it's as easy as loading it by execut
 conda activate /group/<your_project_name>/conda_environments/bioinfo
 ```
 
-You should consider adding your default conda environment to your `~/.bashrc` so you can use your favourite programs right away.
+You should consider adding a default conda environment to your `~/.bashrc` so you can use your favourite programs right away (it is best practice to not install anything into the conda default enviroment `base` as this can cause unexpected behaviour that is hard to resolve).
 
 
 ## Usage
 
 ### 1. Copy files over to Kaya
 
-You can use either [Filezilla](https://filezilla-project.org) or good old `scp` to copy over files to *Kaya*. For example, you could log into the *PEB* servers and `scp` the tutorial folder.
+You can use either [Filezilla](https://filezilla-project.org) or good old `scp` to copy over files to *Kaya*. For example, you could log into the old *PEB* servers and `scp` the tutorial folder.
  
  ```bash
  scp -r /dd_groupdata/tutorial_kaya/ <username>@kaya.hpc.uwa.edu.au:~
@@ -173,21 +173,21 @@ To check the the jobs over the last week and see the memory usage (maxRSS) in GB
 sacct --starttime $(date -d "1 week ago" +%Y-%m-%d) --endtime $(date +%Y-%m-%d) --format=JobID,JobName,State,Elapsed,MaxRSS | awk '{ if ($5 ~ /^[0-9]+K$/) { sub(/K$/, "", $5); printf "%s %s %s %s %.2fGB\n", $1, $2, $3, $4, $5/1024/1024 } else { print } }'
 ```
 
-In case the ListerLab server is fully utilized, you'll also have access to common Kaya servers. To list them run
+In case the ListerLab (PEB) node is fully utilized, you'll also have access to common Kaya nodes. To list them run
 
 ```bash
 sinfo --noheader --format="%P"
 ```
 
-The available partitions have the following wall-time limits
-| Partition  | Time Limit (D-HH:MM:SS) | Publicly Available |
-|------------|-----------------|----------------------------|
-| work       | 3-00:00:00      | yes                        |
-| long       | 7-00:00:00      | yes                        |
-| gpu        | 3-00:00:00      | yes                        |
-| test       | 00:15:00        | yes                        |
-| ondemand   | 04:00:00        | yes                        |
-| peb        | 14-00:00:00     | no - ListerLab exclusive   |
+Partitions are like tags on different nodes within Kaya that mark them as appropiate for specific types of jobs. Not all of the nodes have a GPU, so the GPU partitions only includes nodes that have them. The PEB partitions allows for a longer time limit for jobs because we bought the machine and specifically requested this feature. The available partitions have the following wall-time limits
+| Partition  | Time Limit (D-HH:MM:SS) | Publicly Available | Description        |
+|------------|-----------------|----------------------------|--------------------|
+| work       | 3-00:00:00     | yes                        | For fairly long tasks (TopHat read mapping)       |
+| long       | 7-00:00:00     | yes                        | For very long tasks (loop of TopHat read mapping) |
+| gpu        | 3-00:00:00     | yes                        | For GPU intensive tasks                           |
+| test       | 00:15:00       | yes                        | For very short test of programs or scripts        |
+| ondemand   | 04:00:00       | yes                        | For short programs but need longer than 15 mins   |
+| peb        | 14-00:00:00    | no - ListerLab exclusive   | For very long tasks (like interactive R sessions) |
 
 ### 3. Interactive sessions
 
@@ -208,6 +208,8 @@ to request a `1h` session with `4 cores` and `20GB of RAM` in total.
 
 __IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up resources ❗
 
+__IMPORTANTLY__ Unlike the old PEB servers, this interactive session will wall off resources so even if you are not using them, no one else can, so be polite and exit when you don't need it ❗
+
 ## Examples
 
 
@@ -218,7 +220,7 @@ SLURM scripts are essentially bash scripts with a header that indicates what the
 - time
 - CPUs
 - memory
-- which server(s) (partition) should handle your script.
+- which node(s) (partition) should handle your script.
 
 The way you can specify this is by adding the following lines to your SLURM script:
 
@@ -238,7 +240,7 @@ The way you can specify this is by adding the following lines to your SLURM scri
 
 ```
 
-This is followed by setting some variable names so you can track which `SLURM` job has resulted in what `output`.
+This is followed by setting some variable names so you can track which `SLURM` job has resulted in what `output` (above and below is all intended to be in one script).
 
 ```bash
 # Start of job
@@ -288,4 +290,4 @@ Contributions to this tutorial are welcome! If you find any issues or have sugge
 
 This project is licensed under the [License Name] - add a link to the license file if applicable. 
 
-Tutorial intitally written by Christian Pflueger.
+Tutorial intitally written by Christian Pflueger. Some edits from James Lloyd. 
