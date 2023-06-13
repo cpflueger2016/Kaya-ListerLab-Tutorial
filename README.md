@@ -186,7 +186,6 @@ Partitions are like tags on different nodes within Kaya that mark them as approp
 | long       | 7-00:00:00     | yes                        | For very long tasks (loop of TopHat read mapping) |
 | gpu        | 3-00:00:00     | yes                        | For GPU intensive tasks                           |
 | test       | 00:15:00       | yes                        | For very short test of programs or scripts        |
-| ondemand   | 04:00:00       | yes                        | For short programs but need longer than 15 mins   |
 | peb        | 14-00:00:00    | no - ListerLab exclusive   | For very long tasks (like interactive R sessions) |
 
 ### 3. Interactive sessions
