@@ -180,14 +180,14 @@ sinfo --noheader --format="%P"
 ```
 
 The available partitions have the following wall-time limits
-| Partition  | Time Limit (D-HH:MM:SS) | Publicly Available |
-|------------|-----------------|----------------------------|
-| work       | 3-00:00:00      | yes                        |
-| long       | 7-00:00:00      | yes                        |
-| gpu        | 3-00:00:00      | yes                        |
-| test       | 00:15:00        | yes                        |
-| ondemand   | 04:00:00        | yes                        |
-| peb        | 14-00:00:00     | no - ListerLab exclusive   |
+| Partition  | Time Limit (D-HH:MM:SS) | Publicly Available | Description        |
+|------------|-----------------|----------------------------|--------------------|
+| work       | 3-00:00:00      | yes                        | For fairly long tasks (TopHat read mapping)                   |
+| long       | 7-00:00:00      | yes                        | For very long tasks (loop of TopHat read mapping)             |
+| gpu        | 3-00:00:00      | yes                        | For GPU intensive tasks                                       |
+| test       | 00:15:00        | yes                        | For very short test of programs or scripts                    |
+| ondemand   | 04:00:00        | yes                        | For short programs that need longer than 15 mins but not days |
+| peb        | 14-00:00:00     | no - ListerLab exclusive   | For very long tasks (like Lister Lab interactive)             |
 
 ### 3. Interactive sessions
 
