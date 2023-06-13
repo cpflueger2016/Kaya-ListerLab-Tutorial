@@ -182,12 +182,12 @@ sinfo --noheader --format="%P"
 Partitions are like tags on different nodes within Kaya that mark them as appropiate for specific types of jobs. Not all of the nodes have a GPU, so the GPU partitions only includes nodes that have them. The PEB partitions allows for a longer time limit for jobs because we bought the machine and specifically requested this feature. The available partitions have the following wall-time limits
 | Partition  | Time Limit (D-HH:MM:SS) | Publicly Available | Description        |
 |------------|-----------------|----------------------------|--------------------|
-| work       | 3-00:00:00      | yes                        | For fairly long tasks (TopHat read mapping)                   |
-| long       | 7-00:00:00      | yes                        | For very long tasks (loop of TopHat read mapping)             |
-| gpu        | 3-00:00:00      | yes                        | For GPU intensive tasks                                       |
-| test       | 00:15:00        | yes                        | For very short test of programs or scripts                    |
-| ondemand   | 04:00:00        | yes                        | For short programs that need longer than 15 mins but not days |
-| peb        | 14-00:00:00     | no - ListerLab exclusive   | For very long tasks (like interactive R sessions)             |
+| work       | 3-00:00:00     | yes                        | For fairly long tasks (TopHat read mapping)                   |
+| long       | 7-00:00:00     | yes                        | For very long tasks (loop of TopHat read mapping)             |
+| gpu        | 3-00:00:00     | yes                        | For GPU intensive tasks                                       |
+| test       | 00:15:00       | yes                        | For very short test of programs or scripts                    |
+| ondemand   | 04:00:00       | yes                        | For short programs that need longer than 15 mins but not days |
+| peb        | 14-00:00:00    | no - ListerLab exclusive   | For very long tasks (like interactive R sessions)             |
 
 ### 3. Interactive sessions
 
@@ -207,6 +207,7 @@ srun \
 to request a `1h` session with `4 cores` and `20GB of RAM` in total.  
 
 __IMPORTANTLY__ exit the session by typing `exit` in the terminal to free up resources ❗
+
 __IMPORTANTLY__ Unlike the old PEB servers, this interactive session will wall off resources so even if you are not using them, no one else can, so be polite and exit when you don't need it ❗
 
 ## Examples
