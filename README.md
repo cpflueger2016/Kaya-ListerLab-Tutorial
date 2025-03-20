@@ -30,9 +30,8 @@ In this tutorial, you will learn the basics of server management and SLURM job s
 
 Before starting with the tutorial, make sure you have the following prerequisites installed:
 
-☑️ Access to UWA's Kaya server. Email David Grey at UWA for access. 
-  * Importantly, you'll need to have a description of your project and who else will have access to the data.
-  
+☑️ Access to UWA's Kaya server. Please raise a [Service Request](https://uwa.service-now.com/sp?id=sc_cat_item&sys_id=c38afd311b397910025ada86b04bcbf6) with the IT Helpdesk to request a project on Kaya.  Requests for access need to include a brief description of your project (for reporting purposes), a rough estimate of the data storage requirements for your project, an [RDMP](https://guides.library.uwa.edu.au/c.php?g=967930&p=7038252) and a list of people to be included in the project including a PI.  
+
 ☑️ VPN access to UWA, including setup of MS Authenticator in case you work outside of the `UNIFI` network.
 
 ☑️ Test that you could successfully login to `Kaya` by opening the terminal and ssh into Kaya
@@ -125,44 +124,44 @@ You should consider adding a default conda environment to your `~/.bashrc` so yo
 ### 1. Copy files over to Kaya
 
 You can use either [Filezilla](https://filezilla-project.org) or good old `scp` to copy over files to *Kaya*. For example, you could log into the old *PEB* servers and `scp` the tutorial folder.
- 
+
  ```bash
  scp -r /dd_groupdata/tutorial_kaya/ <username>@kaya.hpc.uwa.edu.au:~
  ```
- 
+
  ### 2. Check resources on the Kaya HPC cluster
- 
+
  Kaya uses SLURM scheduling and you have a couple of options to check what's available and how the queues look like. The graphical interface that tracks usage of resources can be found [here](https://monitor.hpc.uwa.edu.au/d/LftKgZm4z/server-metrics-single?orgId=2&refresh=1m&var-DS_PROMETHEUS=default&var-job=node&var-node=n035.hpc.uwa.edu.au:9100&var-diskdevices=%5Ba-z%5D%2B%7Cnvme%5B0-9%5D%2Bn%5B0-9%5D%2B). 
- 
+
  The Lister Lab server is reserved at __node n035__.
- 
+
  Therefore, you can check the resources that are being used with
- 
+
  ```bash
  scontrol show node n035
  ```
- 
+
  ![Resources Available](assets/images/resources_ListerLab_server.png)
- 
+
  You can see from the picture above, that 4 *cores* are in use and therefore 92 *cores* are available at that time.
- 
+
  To check the queue for the ListerLab server, use the command
- 
+
  ```bash
  squeue -p peb
  ```
- 
+
  or for you own jobs
- 
+
  ```bash
  squeue -u <username>
  ```
- 
+
  __Note__ at the time of writing, the ListerLab server has the partion variable `peb` assigned. This will change in the future and this Tutorial needs to be updated.
- 
- 
+
+
  Check progress on your jobs
- 
+
  ```bash
  sacct
  ```
